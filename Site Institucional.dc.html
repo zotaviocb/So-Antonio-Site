@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" type="image/png" href="assets/social/icone_social_creme.png">
+<link rel="apple-touch-icon" href="assets/social/icone_social_creme.png">
+<title>Sô Antônio Cafés Especiais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=Figtree:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #F4EFE6; color: #3D4B58; font-family: "Figtree", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  section { scroll-margin-top: 78px; }
+  ::selection { background: #AB7D2C; color: #F1E9D3; }
+
+  @media (max-width: 900px) {
+    [data-r="nav"] { padding-left: 20px !important; padding-right: 20px !important; height: 62px !important; }
+    [data-r="logo"] { height: 46px !important; width: auto !important; }
+    [data-r="navlinks"] { display: none !important; }
+    [data-r="burger"] { display: flex !important; }
+    [data-r~="wrap"] { padding-left: 22px !important; padding-right: 22px !important; }
+    [data-r~="vpad"] { padding-top: 66px !important; padding-bottom: 66px !important; }
+    [data-r~="split"] { grid-template-columns: 1fr !important; gap: 40px !important; }
+    [data-r~="imgcol"] { order: 0 !important; }
+    [data-r~="stats"] { justify-content: center !important; gap: 10px 18px !important; }
+    [data-r="timeline4"] { grid-template-columns: repeat(2, 1fr) !important; gap: 24px 18px !important; }
+    [data-r="proc5"] { grid-template-columns: repeat(3, 1fr) !important; gap: 30px 18px !important; }
+    [data-r="cards3"] { grid-template-columns: 1fr !important; }
+    [data-r="awards4"] { grid-template-columns: repeat(3, 1fr) !important; }
+    [data-r="videos"] { grid-template-columns: 1fr !important; }
+    [data-r="footer"] { grid-template-columns: 1fr !important; gap: 34px !important; }
+    [data-r="certifica"] { grid-template-columns: 1fr !important; gap: 22px !important; padding-left: 28px !important; padding-right: 28px !important; text-align: center; justify-items: center; }
+    [data-r="certifica"] img { justify-self: center !important; }
+    [data-r="selo"] { display: none !important; }
+    [data-r="h1"] { font-size: 44px !important; }
+    [data-r="h2"] { font-size: 34px !important; }
+    [data-r="h3farm"] { font-size: 28px !important; }
+  }
+  @media (max-width: 560px) {
+    [data-r~="wrap"] { padding-left: 18px !important; padding-right: 18px !important; }
+    [data-r~="vpad"] { padding-top: 52px !important; padding-bottom: 52px !important; }
+    [data-r~="split"] { gap: 30px !important; }
+    [data-r~="heroGrid"] { padding-top: 44px !important; }
+    [data-r="proc5"] { grid-template-columns: repeat(2, 1fr) !important; }
+    [data-r="awards4"] { grid-template-columns: repeat(2, 1fr) !important; }
+    [data-r="h1"] { font-size: 34px !important; line-height: 1.14 !important; }
+    [data-r="h2"] { font-size: 28px !important; }
+    [data-r="h3farm"] { font-size: 24px !important; }
+  }
+</style>
+</helmet>
+
+<div style="overflow-x: hidden;">
+
+<header style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(244,239,230,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(61,75,88,0.14);">
+  <div style="height: 3px; background: #AB7D2C;"></div>
+  <nav data-r="nav" style="max-width: 1200px; margin: 0 auto; padding: 0 40px; height: 74px; display: flex; align-items: center; justify-content: space-between;">
+    <a href="#topo" style="display: flex; align-items: center;"><img src="assets/logos/logo_horizontal_azul.png" alt="Sô Antônio Cafés Especiais" data-r="logo" style="height: 62px; width: 131px"></a>
+    <div style="display: flex; align-items: center; gap: 18px;">
+      <div data-r="navlinks" style="display: flex; align-items: center; gap: 30px;">
+        <a href="#historia" style="font-size: 14px; font-weight: 500; letter-spacing: 0.02em; color: #3D4B58; padding: 6px 0; border-bottom: 1.5px solid transparent;" style-hover="border-bottom: 1.5px solid #AB7D2C;">{{ t.navHistoria }}</a>
+        <a href="#fazendas" style="font-size: 14px; font-weight: 500; letter-spacing: 0.02em; color: #3D4B58; padding: 6px 0; border-bottom: 1.5px solid transparent;" style-hover="border-bottom: 1.5px solid #AB7D2C;">{{ t.navFazendas }}</a>
+        <a href="#processo" style="font-size: 14px; font-weight: 500; letter-spacing: 0.02em; color: #3D4B58; padding: 6px 0; border-bottom: 1.5px solid transparent;" style-hover="border-bottom: 1.5px solid #AB7D2C;">{{ t.navProcesso }}</a>
+        <a href="#premiacoes" style="font-size: 14px; font-weight: 500; letter-spacing: 0.02em; color: #3D4B58; padding: 6px 0; border-bottom: 1.5px solid transparent;" style-hover="border-bottom: 1.5px solid #AB7D2C;">{{ t.navPremiacoes }}</a>
+        <a href="#contato" style="font-size: 14px; font-weight: 500; letter-spacing: 0.04em; color: #3D4B58; padding: 6px 0; border-bottom: 1.5px solid transparent;" style-hover="border-bottom: 1.5px solid #AB7D2C;">{{ t.navContato }}</a>
+        <a href="{{ shopUrl }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #F1E9D3; background: #AB7D2C; padding: 11px 22px; border-radius: 999px; box-shadow: 0 6px 16px rgba(171,125,44,0.28); transition: background .2s ease, transform .15s ease;" style-hover="background: #9A6E22;" style-active="transform: translateY(1px);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          {{ t.navComprar }}
+        </a>
+      </div>
+
+      <div style="position: relative;">
+        <button type="button" onClick="{{ toggleLang }}" aria-label="Idioma / Language" style="display: flex; align-items: center; gap: 7px; background: transparent; border: 1px solid rgba(61,75,88,0.22); border-radius: 999px; padding: 5px 10px 5px 7px; cursor: pointer; color: #3D4B58;" style-hover="background: rgba(61,75,88,0.06);">
+          <img src="https://flagcdn.com/w40/{{ flagCode }}.png" alt="" style="width: 22px; height: 16px; border-radius: 2px; object-fit: cover; display: block; box-shadow: 0 0 0 1px rgba(61,75,88,0.12);">
+          <span style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.04em;">{{ langLabel }}</span>
+          <span style="display: block; width: 7px; height: 7px; border-right: 1.5px solid #3D4B58; border-bottom: 1.5px solid #3D4B58; transform: rotate(45deg) translate(-1px,-1px);"></span>
+        </button>
+        <sc-if value="{{ langOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position: absolute; right: 0; top: calc(100% + 10px); background: #F4EFE6; border: 1px solid rgba(61,75,88,0.16); border-radius: 12px; box-shadow: 0 14px 38px rgba(46,57,66,0.18); padding: 6px; min-width: 184px; z-index: 60;">
+            <button type="button" onClick="{{ pickPt }}" style="display: flex; align-items: center; gap: 11px; width: 100%; padding: 10px 12px; background: transparent; border: none; border-radius: 8px; cursor: pointer; font-family: 'Figtree', sans-serif; font-size: 14.5px; color: #3D4B58; text-align: left;" style-hover="background: rgba(61,75,88,0.07);"><img src="https://flagcdn.com/w40/br.png" alt="" style="width: 24px; height: 17px; border-radius: 2px; object-fit: cover; box-shadow: 0 0 0 1px rgba(61,75,88,0.12);">Português</button>
+            <button type="button" onClick="{{ pickEn }}" style="display: flex; align-items: center; gap: 11px; width: 100%; padding: 10px 12px; background: transparent; border: none; border-radius: 8px; cursor: pointer; font-family: 'Figtree', sans-serif; font-size: 14.5px; color: #3D4B58; text-align: left;" style-hover="background: rgba(61,75,88,0.07);"><img src="https://flagcdn.com/w40/us.png" alt="" style="width: 24px; height: 17px; border-radius: 2px; object-fit: cover; box-shadow: 0 0 0 1px rgba(61,75,88,0.12);">English</button>
+            <button type="button" onClick="{{ pickEs }}" style="display: flex; align-items: center; gap: 11px; width: 100%; padding: 10px 12px; background: transparent; border: none; border-radius: 8px; cursor: pointer; font-family: 'Figtree', sans-serif; font-size: 14.5px; color: #3D4B58; text-align: left;" style-hover="background: rgba(61,75,88,0.07);"><img src="https://flagcdn.com/w40/es.png" alt="" style="width: 24px; height: 17px; border-radius: 2px; object-fit: cover; box-shadow: 0 0 0 1px rgba(61,75,88,0.12);">Español</button>
+            <button type="button" onClick="{{ pickZh }}" style="display: flex; align-items: center; gap: 11px; width: 100%; padding: 10px 12px; background: transparent; border: none; border-radius: 8px; cursor: pointer; font-family: 'Figtree', sans-serif; font-size: 14.5px; color: #3D4B58; text-align: left;" style-hover="background: rgba(61,75,88,0.07);"><img src="https://flagcdn.com/w40/cn.png" alt="" style="width: 24px; height: 17px; border-radius: 2px; object-fit: cover; box-shadow: 0 0 0 1px rgba(61,75,88,0.12);">简体中文</button>
+          </div>
+        </sc-if>
+      </div>
+
+      <button type="button" data-r="burger" onClick="{{ toggleMenu }}" aria-label="Abrir menu" style="display: none; flex-direction: column; gap: 5px; align-items: center; justify-content: center; width: 44px; height: 44px; background: transparent; border: none; cursor: pointer; padding: 0; margin-right: -8px;">
+        <span style="display: block; width: 24px; height: 2px; background: #3D4B58; border-radius: 2px;"></span>
+        <span style="display: block; width: 24px; height: 2px; background: #3D4B58; border-radius: 2px;"></span>
+        <span style="display: block; width: 24px; height: 2px; background: #3D4B58; border-radius: 2px;"></span>
+      </button>
+    </div>
+  </nav>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div data-r="mobile-menu" style="background: rgba(244,239,230,0.98); border-top: 1px solid rgba(61,75,88,0.12);">
+      <div style="display: flex; flex-direction: column; padding: 6px 22px 18px;">
+        <a href="#historia" onClick="{{ closeMenu }}" style="font-size: 16px; font-weight: 500; color: #3D4B58; padding: 13px 2px; border-bottom: 1px solid rgba(61,75,88,0.1);">{{ t.navHistoria }}</a>
+        <a href="#fazendas" onClick="{{ closeMenu }}" style="font-size: 16px; font-weight: 500; color: #3D4B58; padding: 13px 2px; border-bottom: 1px solid rgba(61,75,88,0.1);">{{ t.navFazendas }}</a>
+        <a href="#processo" onClick="{{ closeMenu }}" style="font-size: 16px; font-weight: 500; color: #3D4B58; padding: 13px 2px; border-bottom: 1px solid rgba(61,75,88,0.1);">{{ t.navProcesso }}</a>
+        <a href="#premiacoes" onClick="{{ closeMenu }}" style="font-size: 16px; font-weight: 500; color: #3D4B58; padding: 13px 2px; border-bottom: 1px solid rgba(61,75,88,0.1);">{{ t.navPremiacoes }}</a>
+        <a href="#contato" onClick="{{ closeMenu }}" style="font-size: 16px; font-weight: 500; color: #3D4B58; padding: 13px 2px; border-bottom: 1px solid rgba(61,75,88,0.1);">{{ t.navContato }}</a>
+        <a href="{{ shopUrl }}" target="_blank" rel="noopener" onClick="{{ closeMenu }}" style="margin-top: 16px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; text-align: center; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #F1E9D3; background: #AB7D2C; padding: 15px 22px; border-radius: 999px;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          {{ t.navComprar }}
+        </a>
+      </div>
+    </div>
+  </sc-if>
+</header>
+
+
+
+<section id="topo" data-screen-label="Hero" style="position: relative; background: #F4EFE6; padding-top: 74px;">
+  <div data-r="wrap split heroGrid" style="max-width: 1200px; margin: 0 auto; padding: 78px 40px 0; display: grid; grid-template-columns: 1.04fr 0.96fr; gap: 64px; align-items: center; position: relative">
+    <div>
+      <div style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #AB7D2C;">{{ t.heroEyebrow }}</div>
+      <h1 data-r="h1" style="font-family: 'Noto Serif', serif; font-weight: 300; font-size: 62px; line-height: 1.08; letter-spacing: -0.01em; color: #3D4B58; margin: 22px 0 0; text-wrap: balance;">{{ t.heroTitle }}</h1>
+      <p style="font-weight: 300; font-size: 18px; line-height: 1.62; color: #6F4E37; max-width: 480px; margin: 24px 0 0;">{{ t.heroText }}</p>
+      <div style="display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap;">
+        <a href="{{ shopUrl }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #F1E9D3; background: #AB7D2C; padding: 15px 30px; border-radius: 999px; box-shadow: 0 8px 22px rgba(171,125,44,0.3); transition: background .2s ease, transform .15s ease;" style-hover="background: #9A6E22;" style-active="transform: translateY(1px);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          {{ t.navComprar }}
+        </a>
+        <a href="#fazendas" style="display: inline-flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 500; color: #3D4B58; background: transparent; padding: 14px 28px; border-radius: 999px; border: 1.5px solid rgba(61,75,88,0.28); transition: background .2s ease;" style-hover="background: rgba(61,75,88,0.06);">{{ t.heroBtn1 }}</a>
+      </div>
+    </div>
+    <div style="position: relative;" data-reveal="">
+      <div style="position: absolute; inset: -16px; border: 1px solid #6F4E37; pointer-events: none;"></div>
+      <div style="overflow: hidden; aspect-ratio: 4 / 4.6; box-shadow: 0 18px 48px rgba(46,57,66,0.16);">
+        <img src="assets/fotos/so-antonio-cafezal.png" alt="Sô Antônio no cafezal de altitude da Serra da Mantiqueira" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+    </div>
+  <img src="assets/selo/selo_azul.png" alt="Selo Sô Antônio · Desde 1952" data-r="selo" style="position: absolute; left: 502px; width: 116px; height: 116px; top: 10px"></div><img src="assets/illustrations/fazenda_01.png" alt="" aria-hidden="true" style="display: block; width: 100%; max-width: 1183px; height: auto; margin: 18px auto 0; opacity: 0.8; mix-blend-mode: multiply;">
+</section>
+
+<section style="background: #F1E9D3; border-top: 1px solid rgba(61,75,88,0.14); border-bottom: 1px solid rgba(61,75,88,0.14);">
+  <div data-r="wrap stats" style="max-width: 1200px; margin: 0 auto; padding: 20px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
+    <span style="font-size: 13.5px; font-weight: 500; color: #6F4E37; display: inline-flex; align-items: center; gap: 9px;"><span style="width: 6px; height: 6px; border-radius: 999px; background: #AB7D2C;"></span>{{ t.stat1 }}</span>
+    <span style="font-size: 13.5px; font-weight: 500; color: #6F4E37; display: inline-flex; align-items: center; gap: 9px;"><span style="width: 6px; height: 6px; border-radius: 999px; background: #AB7D2C;"></span>{{ t.stat2 }}</span>
+    <span style="font-size: 13.5px; font-weight: 500; color: #6F4E37; display: inline-flex; align-items: center; gap: 9px;"><span style="width: 6px; height: 6px; border-radius: 999px; background: #AB7D2C;"></span>{{ t.stat3 }}</span>
+    <span style="font-size: 13.5px; font-weight: 500; color: #6F4E37; display: inline-flex; align-items: center; gap: 9px;"><span style="width: 6px; height: 6px; border-radius: 999px; background: #AB7D2C;"></span>{{ t.stat4 }}</span>
+    <span style="font-size: 13.5px; font-weight: 500; color: #6F4E37; display: inline-flex; align-items: center; gap: 9px;"><span style="width: 6px; height: 6px; border-radius: 999px; background: #AB7D2C;"></span>{{ t.stat5 }}</span>
+  </div>
+</section>
+
+</div>
+
+<section id="historia" data-screen-label="História" style="background: #2E3942; color: #F1E9D3; position: relative; overflow: hidden;">
+  <div data-r="wrap vpad split" style="max-width: 1200px; margin: 0 auto; padding: 96px 40px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 72px; align-items: center; position: relative">
+    <div data-reveal="">
+      <div style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #D4A574;">{{ t.histEyebrow }}</div>
+      <h2 data-r="h2" style="font-family: 'Noto Serif', serif; font-weight: 300; font-size: 46px; line-height: 1.12; letter-spacing: -0.01em; color: #F1E9D3; margin: 18px 0 0; text-wrap: balance;">{{ t.histTitle }}</h2>
+      <p style="font-weight: 300; font-size: 16.5px; line-height: 1.68; color: #C9CDD2; margin: 22px 0 0; max-width: 520px;">{{ t.histP1a }}<strong style="font-weight: 600; color: #F1E9D3;">Antônio Fortes Bustamante</strong>{{ t.histP1b }}</p>
+      <p style="font-weight: 300; font-size: 16.5px; line-height: 1.68; color: #C9CDD2; margin: 16px 0 0; max-width: 520px;">{{ t.histP2a }}<strong style="font-weight: 600; color: #F1E9D3;">José Otávio, Cláudia e Cristiana</strong>{{ t.histP2b }}<strong style="font-weight: 600; color: #F1E9D3;">Fortes Bustamante Agronegócios</strong>{{ t.histP2c }}</p>
+      <div data-r="timeline4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 44px; border-top: 1px solid rgba(241,233,211,0.18); padding-top: 26px;">
+        <div><div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;"><span style="width: 8px; height: 8px; border-radius: 999px; background: #AB7D2C;"></span><span style="font-family: 'Noto Serif', serif; font-size: 22px; color: #F1E9D3;">1952</span></div><div style="font-size: 13px; line-height: 1.45; color: #C9CDD2;">{{ t.tl1952 }}</div></div>
+        <div><div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;"><span style="width: 8px; height: 8px; border-radius: 999px; background: #AB7D2C;"></span><span style="font-family: 'Noto Serif', serif; font-size: 22px; color: #F1E9D3;">1977</span></div><div style="font-size: 13px; line-height: 1.45; color: #C9CDD2;">{{ t.tl1977 }}</div></div>
+        <div><div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;"><span style="width: 8px; height: 8px; border-radius: 999px; background: #AB7D2C;"></span><span style="font-family: 'Noto Serif', serif; font-size: 22px; color: #F1E9D3;">2016</span></div><div style="font-size: 13px; line-height: 1.45; color: #C9CDD2;">{{ t.tl2016 }}</div></div>
+        <div><div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;"><span style="width: 8px; height: 8px; border-radius: 999px; background: #AB7D2C;"></span><span style="font-family: 'Noto Serif', serif; font-size: 22px; color: #F1E9D3;">{{ t.tlHojeLabel }}</span></div><div style="font-size: 13px; line-height: 1.45; color: #C9CDD2;">{{ t.tlHoje }}</div></div>
+      </div>
+    </div>
+    <div style="position: relative;" data-reveal="">
+      <div style="position: absolute; inset: -16px; border: 1px solid #D4A574; pointer-events: none;"></div>
+      <div style="overflow: hidden; aspect-ratio: 5 / 5.6; box-shadow: 0 18px 48px rgba(0,0,0,0.28);">
+        <img src="assets/fotos/familia-fortes-bustamante.png" alt="A família Fortes Bustamante e o café Sô Antônio" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+    </div>
+  <img src="assets/selo/selo_creme.png" alt="" aria-hidden="true" data-r="selo" style="position: absolute; top: 22px; width: 108px; height: 108px; opacity: 0.96; left: 533px"></div>
+</section>
+
+<section id="fazendas" data-screen-label="Fazendas" style="background: #F4EFE6;">
+  <div data-r="wrap" style="max-width: 1200px; margin: 0 auto; padding: 100px 40px 30px;">
+    <div style="max-width: 640px;" data-reveal="">
+      <div style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #AB7D2C;">{{ t.farmsEyebrow }}</div>
+      <h2 data-r="h2" style="font-family: 'Noto Serif', serif; font-weight: 300; font-size: 46px; line-height: 1.1; letter-spacing: -0.01em; color: #3D4B58; margin: 16px 0 0; text-wrap: balance;">{{ t.farmsTitle }}</h2>
+      <p style="font-weight: 300; font-size: 17px; line-height: 1.62; color: #6F4E37; margin: 18px 0 0;">{{ t.farmsText }}</p>
+    </div>
+  </div>
+
+  <div data-r="wrap" style="max-width: 1200px; margin: 0 auto; padding: 56px 40px;">
+    <div data-r="split" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 84px;" data-reveal="">
+      <div style="position: relative;">
+        <div style="position: absolute; inset: -14px; border: 1px solid #6F4E37; pointer-events: none;"></div>
+        <div style="overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 18px 48px rgba(46,57,66,0.16);">
+          <img src="assets/fotos/mantiqueira-paisagem.png" alt="Fazenda Paraíso, Conceição das Pedras — MG" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+      </div>
+      <div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #AB7D2C;">Conceição das Pedras · MG</div>
+        <h3 data-r="h3farm" style="font-family: 'Noto Serif', serif; font-weight: 400; font-size: 34px; color: #3D4B58; margin: 8px 0 0;">Fazenda Paraíso</h3>
+        <div style="font-family: 'Noto Serif', serif; font-style: italic; font-weight: 300; font-size: 20px; color: #6F4E37; margin-top: 6px;">{{ t.f1tag }}</div>
+        <p style="font-weight: 300; font-size: 15.5px; line-height: 1.66; color: #6F4E37; margin: 18px 0 0; max-width: 480px;">{{ t.f1desc }}</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 28px; margin-top: 26px;">
+          <div><div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A7A66;">{{ t.lblAltitude }}</div><div style="font-size: 15px; color: #3D4B58; margin-top: 4px;">{{ t.f1altitude }}</div></div>
+          <div><div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A7A66;">{{ t.lblVariedade }}</div><div style="font-size: 15px; color: #3D4B58; margin-top: 4px;">{{ t.f1var }}</div></div>
+          <div><div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A7A66;">{{ t.lblTerroir }}</div><div style="font-size: 15px; color: #3D4B58; margin-top: 4px;">{{ t.f1terroir }}</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div data-r="split" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 84px;" data-reveal="">
+      <div data-r="imgcol" style="order: 2; position: relative;">
+        <div style="position: absolute; inset: -14px; border: 1px solid #6F4E37; pointer-events: none;"></div>
+        <div style="overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 18px 48px rgba(46,57,66,0.16);">
+          <img src="assets/fotos/fazenda-pedra-preta.png" alt="Fazenda Pedra Preta, Jesuânia — MG" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+      </div>
+      <div style="order: 1;">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #AB7D2C;">Jesuânia · MG</div>
+        <h3 data-r="h3farm" style="font-family: 'Noto Serif', serif; font-weight: 400; font-size: 34px; color: #3D4B58; margin: 8px 0 0;">Fazenda Pedra Preta</h3>
+        <div style="font-family: 'Noto Serif', serif; font-style: italic; font-weight: 300; font-size: 20px; color: #6F4E37; margin-top: 6px;">{{ t.f2tag }}</div>
+        <p style="font-weight: 300; font-size: 15.5px; line-height: 1.66; color: #6F4E37; margin: 18px 0 0; max-width: 480px;">{{ t.f2desc }}</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 28px; margin-top: 26px;">
+          <div><div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A7A66;">{{ t.lblAltitude }}</div><div style="font-size: 15px; color: #3D4B58; margin-top: 4px;">{{ t.f2altitude }}</div></div>
+          <div style="max-width: 230px;"><div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A7A66;">{{ t.lblVariedades }}</div><div style="font-size: 15px; color: #3D4B58; margin-top: 4px;">Catucaí 2sl, Catuaí 62, Acaiá, Icatu, Bourbon Amarelo</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div data-r="split" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;" data-reveal="">
+      <div style="position: relative;">
+        <div style="position: absolute; inset: -14px; border: 1px solid #6F4E37; pointer-events: none;"></div>
+        <div style="overflow: hidden; aspect-ratio: 4 / 3; box-shadow: 0 18px 48px rgba(46,57,66,0.16);">
+          <img src="assets/fotos/chacara-santo-inacio.png" alt="Chácara Santo Inácio, Pedralva — MG" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+      </div>
+      <div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #AB7D2C;">Pedralva · MG</div>
+        <h3 data-r="h3farm" style="font-family: 'Noto Serif', serif; font-weight: 400; font-size: 34px; color: #3D4B58; margin: 8px 0 0;">Chácara Santo Inácio</h3>
+        <div style="font-family: 'Noto Serif', serif; font-style: italic; font-weight: 300; font-size: 20px; color: #6F4E37; margin-top: 6px;">{{ t.f3tag }}</div>
+        <p style="font-weight: 300; font-size: 15.5px; line-height: 1.66; color: #6F4E37; margin: 18px 0 0; max-width: 480px;">{{ t.f3desc }}</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 28px; margin-top: 26px;">
+          <div><div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A7A66;">{{ t.lblFuncao }}</div><div style="font-size: 15px; color: #3D4B58; margin-top: 4px;">{{ t.f3funcao }}</div></div>
+          <div><div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #8A7A66;">{{ t.lblSecagem }}</div><div style="font-size: 15px; color: #3D4B58; margin-top: 4px;">{{ t.f3secagem }}</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="processo" data-screen-label="Processo" style="background: #3D4B58; color: #F1E9D3;">
+  <div data-r="wrap vpad" style="max-width: 1200px; margin: 0 auto; padding: 96px 40px;">
+    <div style="max-width: 660px;" data-reveal="">
+      <div style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #D4A574;">{{ t.procEyebrow }}</div>
+      <h2 data-r="h2" style="font-family: 'Noto Serif', serif; font-weight: 300; font-size: 44px; line-height: 1.12; color: #F1E9D3; margin: 16px 0 0; text-wrap: balance;">{{ t.procTitle }}</h2>
+      <p style="font-weight: 300; font-size: 16.5px; line-height: 1.64; color: #C9CDD2; margin: 18px 0 0;">{{ t.procText }}</p>
+    </div>
+
+    <div data-r="proc5" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; margin-top: 60px;" data-reveal="">
+      <div style="text-align: center;"><img src="assets/icons/plantacao_creme.png" alt="" style="width: 72px; height: 72px; margin: 0 auto;"><div style="font-family: 'Noto Serif', serif; font-size: 12px; color: #D4A574; margin-top: 14px;">01</div><h4 style="font-weight: 600; font-size: 16px; color: #F1E9D3; margin: 4px 0 6px;">{{ t.step1t }}</h4><p style="font-size: 13px; line-height: 1.5; color: #C9CDD2; margin: 0;">{{ t.step1d }}</p></div>
+      <div style="text-align: center;"><img src="assets/icons/colher_creme.png" alt="" style="width: 72px; height: 72px; margin: 0 auto;"><div style="font-family: 'Noto Serif', serif; font-size: 12px; color: #D4A574; margin-top: 14px;">02</div><h4 style="font-weight: 600; font-size: 16px; color: #F1E9D3; margin: 4px 0 6px;">{{ t.step2t }}</h4><p style="font-size: 13px; line-height: 1.5; color: #C9CDD2; margin: 0;">{{ t.step2d }}</p></div>
+      <div style="text-align: center;"><img src="assets/icons/saco_creme.png" alt="" style="width: 72px; height: 72px; margin: 0 auto;"><div style="font-family: 'Noto Serif', serif; font-size: 12px; color: #D4A574; margin-top: 14px;">03</div><h4 style="font-weight: 600; font-size: 16px; color: #F1E9D3; margin: 4px 0 6px;">{{ t.step3t }}</h4><p style="font-size: 13px; line-height: 1.5; color: #C9CDD2; margin: 0;">{{ t.step3d }}</p></div>
+      <div style="text-align: center;"><img src="assets/icons/cafeteira_creme.png" alt="" style="width: 72px; height: 72px; margin: 0 auto;"><div style="font-family: 'Noto Serif', serif; font-size: 12px; color: #D4A574; margin-top: 14px;">04</div><h4 style="font-weight: 600; font-size: 16px; color: #F1E9D3; margin: 4px 0 6px;">{{ t.step4t }}</h4><p style="font-size: 13px; line-height: 1.5; color: #C9CDD2; margin: 0;">{{ t.step4d }}</p></div>
+      <div style="text-align: center;"><img src="assets/icons/xicara_creme.png" alt="" style="width: 72px; height: 72px; margin: 0 auto;"><div style="font-family: 'Noto Serif', serif; font-size: 12px; color: #D4A574; margin-top: 14px;">05</div><h4 style="font-weight: 600; font-size: 16px; color: #F1E9D3; margin: 4px 0 6px;">{{ t.step5t }}</h4><p style="font-size: 13px; line-height: 1.5; color: #C9CDD2; margin: 0;">{{ t.step5d }}</p></div>
+    </div>
+
+    <div style="margin-top: 64px; border-top: 1px solid rgba(241,233,211,0.18); padding-top: 40px;" data-reveal="">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #D4A574; text-align: center;">{{ t.varietiesLabel }}</div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 22px;">
+        <span style="font-size: 14px; color: #F1E9D3; border: 1px solid rgba(241,233,211,0.28); border-radius: 999px; padding: 9px 20px;">Catucaí Amarelo</span>
+        <span style="font-size: 14px; color: #F1E9D3; border: 1px solid rgba(241,233,211,0.28); border-radius: 999px; padding: 9px 20px;">Bourbon Vermelho</span>
+        <span style="font-size: 14px; color: #F1E9D3; border: 1px solid rgba(241,233,211,0.28); border-radius: 999px; padding: 9px 20px;">Bourbon Amarelo</span>
+        <span style="font-size: 14px; color: #F1E9D3; border: 1px solid rgba(241,233,211,0.28); border-radius: 999px; padding: 9px 20px;">Catuaí Vermelho</span>
+        <span style="font-size: 14px; color: #F1E9D3; border: 1px solid rgba(241,233,211,0.28); border-radius: 999px; padding: 9px 20px;">Mundo Novo</span>
+        <span style="font-size: 14px; color: #F1E9D3; border: 1px solid rgba(241,233,211,0.28); border-radius: 999px; padding: 9px 20px;">Arara</span>
+        <span style="font-size: 14px; color: #F1E9D3; border: 1px solid rgba(241,233,211,0.28); border-radius: 999px; padding: 9px 20px;">Geisha</span>
+      </div>
+    </div>
+
+    <div data-r="cards3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px;" data-reveal="">
+      <div style="background: #2E3942; border: 1px solid rgba(241,233,211,0.12); border-radius: 10px; padding: 28px;"><div style="font-family: 'Noto Serif', serif; font-size: 22px; color: #F1E9D3;">{{ t.card1t }}</div><p style="font-size: 14px; line-height: 1.55; color: #C9CDD2; margin: 10px 0 0;">{{ t.card1d }}</p></div>
+      <div style="background: #2E3942; border: 1px solid rgba(241,233,211,0.12); border-radius: 10px; padding: 28px;"><div style="font-family: 'Noto Serif', serif; font-size: 22px; color: #F1E9D3;">{{ t.card2t }}</div><p style="font-size: 14px; line-height: 1.55; color: #C9CDD2; margin: 10px 0 0;">{{ t.card2d }}</p></div>
+      <div style="background: #2E3942; border: 1px solid rgba(241,233,211,0.12); border-radius: 10px; padding: 28px;"><div style="font-family: 'Noto Serif', serif; font-size: 22px; color: #F1E9D3;">{{ t.card3t }}</div><p style="font-size: 14px; line-height: 1.55; color: #C9CDD2; margin: 10px 0 0;">{{ t.card3d }}</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="premiacoes" data-screen-label="Premiações" style="background: #F4EFE6;">
+  <div data-r="wrap vpad" style="max-width: 1200px; margin: 0 auto; padding: 100px 40px;">
+    <div style="max-width: 660px;" data-reveal="">
+      <div style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #AB7D2C;">{{ t.awEyebrow }}</div>
+      <h2 data-r="h2" style="font-family: 'Noto Serif', serif; font-weight: 300; font-size: 46px; line-height: 1.1; letter-spacing: -0.01em; color: #3D4B58; margin: 16px 0 0; text-wrap: balance;">{{ t.awTitle }}</h2>
+      <p style="font-weight: 300; font-size: 17px; line-height: 1.62; color: #6F4E37; margin: 18px 0 0;">{{ t.awText }}</p>
+    </div>
+
+    <div data-r="awards4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 54px;" data-reveal="">
+      <div style="background: #fff; border: 1px solid rgba(61,75,88,0.14); border-radius: 12px; padding: 14px; box-shadow: 0 1px 2px rgba(46,57,66,0.08);">
+        <a href="assets/fotos/premios/bsca-2013.png" target="_blank" style="display: block; position: relative;">
+          <div style="position: absolute; inset: 4px; border: 1px solid #6F4E37; pointer-events: none; z-index: 1;"></div>
+          <div style="overflow: hidden; aspect-ratio: 1.4 / 1; background: #F1E9D3;"><img src="assets/fotos/premios/bsca-2013.png" alt="Certificado BSCA Cup of Excellence 2013 — Fazenda Paraíso" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; border-radius: 999px; border: 2px solid #AB7D2C; background: #F1E9D3; display: flex; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 2px 6px rgba(46,57,66,0.18);"><span style="font-family: 'Noto Serif', serif; font-size: 16px; color: #3D4B58;">2º</span></div>
+        </a>
+        <div style="padding: 16px 10px 6px; text-align: center;">
+          <div style="font-family: 'Noto Serif', serif; font-size: 26px; color: #3D4B58;">2013</div>
+          <div style="font-size: 13.5px; font-weight: 600; letter-spacing: 0.06em; color: #AB7D2C; margin-top: 4px;">BSCA</div>
+          <div style="font-size: 13px; color: #6F4E37; margin-top: 4px;">{{ t.aw2013 }}</div>
+        </div>
+      </div>
+      <div style="background: #fff; border: 1px solid rgba(61,75,88,0.14); border-radius: 12px; padding: 14px; box-shadow: 0 1px 2px rgba(46,57,66,0.08);">
+        <a href="assets/fotos/premios/bsca-2016.png" target="_blank" style="display: block; position: relative;">
+          <div style="position: absolute; inset: 4px; border: 1px solid #6F4E37; pointer-events: none; z-index: 1;"></div>
+          <div style="overflow: hidden; aspect-ratio: 1.4 / 1; background: #F1E9D3;"><img src="assets/fotos/premios/bsca-2016.png" alt="Certificado BSCA Cup of Excellence 2016 — Sítio Paraíso" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; border-radius: 999px; border: 2px solid #AB7D2C; background: #F1E9D3; display: flex; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 2px 6px rgba(46,57,66,0.18);"><span style="font-family: 'Noto Serif', serif; font-size: 16px; color: #3D4B58;">3º</span></div>
+        </a>
+        <div style="padding: 16px 10px 6px; text-align: center;">
+          <div style="font-family: 'Noto Serif', serif; font-size: 26px; color: #3D4B58;">2016</div>
+          <div style="font-size: 13.5px; font-weight: 600; letter-spacing: 0.06em; color: #AB7D2C; margin-top: 4px;">BSCA</div>
+          <div style="font-size: 13px; color: #6F4E37; margin-top: 4px;">{{ t.aw2016 }}</div>
+        </div>
+      </div>
+      <div style="background: #fff; border: 1px solid rgba(61,75,88,0.14); border-radius: 12px; padding: 14px; box-shadow: 0 1px 2px rgba(46,57,66,0.08);">
+        <a href="assets/fotos/premios/bestcup-2017.jpg" target="_blank" style="display: block; position: relative;">
+          <div style="position: absolute; inset: 4px; border: 1px solid #6F4E37; pointer-events: none; z-index: 1;"></div>
+          <div style="overflow: hidden; aspect-ratio: 1.4 / 1; background: #F1E9D3;"><img src="assets/fotos/premios/bestcup-2017.jpg" alt="Certificado Carmo Best Cup 2017 — 1º lugar, Fazenda Pedra Preta" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; border-radius: 999px; border: 2px solid #AB7D2C; background: #F1E9D3; display: flex; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 2px 6px rgba(46,57,66,0.18);"><span style="font-family: 'Noto Serif', serif; font-size: 18px; color: #3D4B58;">1º</span></div>
+        </a>
+        <div style="padding: 16px 10px 6px; text-align: center;">
+          <div style="font-family: 'Noto Serif', serif; font-size: 26px; color: #3D4B58;">2017</div>
+          <div style="font-size: 13.5px; font-weight: 600; letter-spacing: 0.06em; color: #AB7D2C; margin-top: 4px;">Best Cup</div>
+          <div style="font-size: 13px; color: #6F4E37; margin-top: 4px;">{{ t.aw2017 }}</div>
+        </div>
+      </div>
+      <div style="background: #fff; border: 1px solid rgba(61,75,88,0.14); border-radius: 12px; padding: 14px; box-shadow: 0 1px 2px rgba(46,57,66,0.08);">
+        <a href="assets/fotos/premios/bestcup-2019.png" target="_blank" style="display: block; position: relative;">
+          <div style="position: absolute; inset: 4px; border: 1px solid #6F4E37; pointer-events: none; z-index: 1;"></div>
+          <div style="overflow: hidden; aspect-ratio: 1.4 / 1; background: #F1E9D3;"><img src="assets/fotos/premios/bestcup-2019.png" alt="Certificado Carmo Best Cup 2019 — Fazenda Paraíso" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; border-radius: 999px; border: 2px solid #AB7D2C; background: #F1E9D3; display: flex; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 2px 6px rgba(46,57,66,0.18);"><span style="font-family: 'Noto Serif', serif; font-size: 16px; color: #3D4B58;">3º</span></div>
+        </a>
+        <div style="padding: 16px 10px 6px; text-align: center;">
+          <div style="font-family: 'Noto Serif', serif; font-size: 26px; color: #3D4B58;">2019</div>
+          <div style="font-size: 13.5px; font-weight: 600; letter-spacing: 0.06em; color: #AB7D2C; margin-top: 4px;">Best Cup</div>
+          <div style="font-size: 13px; color: #6F4E37; margin-top: 4px;">{{ t.aw2019 }}</div>
+        </div>
+      </div>
+      <div style="background: #fff; border: 1px solid rgba(61,75,88,0.14); border-radius: 12px; padding: 14px; box-shadow: 0 1px 2px rgba(46,57,66,0.08);">
+        <a href="assets/fotos/premios/cocarive-2020.png" target="_blank" style="display: block; position: relative;">
+          <div style="position: absolute; inset: 4px; border: 1px solid #6F4E37; pointer-events: none; z-index: 1;"></div>
+          <div style="overflow: hidden; aspect-ratio: 1.4 / 1; background: #F1E9D3;"><img src="assets/fotos/premios/cocarive-2020.png" alt="Certificado Cocarive Specialty Coffee Competition 2020 — Cereja Descascado" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; border-radius: 999px; border: 2px solid #AB7D2C; background: #F1E9D3; display: flex; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 2px 6px rgba(46,57,66,0.18);"><span style="font-family: 'Noto Serif', serif; font-size: 16px; color: #3D4B58;">3º</span></div>
+        </a>
+        <div style="padding: 16px 10px 6px; text-align: center;">
+          <div style="font-family: 'Noto Serif', serif; font-size: 26px; color: #3D4B58;">2020</div>
+          <div style="font-size: 13.5px; font-weight: 600; letter-spacing: 0.06em; color: #AB7D2C; margin-top: 4px;">Cocarive</div>
+          <div style="font-size: 13px; color: #6F4E37; margin-top: 4px;">{{ t.aw2020c }}</div>
+        </div>
+      </div>
+      <div style="background: #fff; border: 1px solid rgba(61,75,88,0.14); border-radius: 12px; padding: 14px; box-shadow: 0 1px 2px rgba(46,57,66,0.08);">
+        <a href="assets/fotos/premios/minasul-aman-2020.png" target="_blank" style="display: block; position: relative;">
+          <div style="position: absolute; inset: 4px; border: 1px solid #6F4E37; pointer-events: none; z-index: 1;"></div>
+          <div style="overflow: hidden; aspect-ratio: 1.4 / 1; background: #F1E9D3;"><img src="assets/fotos/premios/minasul-aman-2020.png" alt="Certificado Minasul · AMAN — Concurso Qualidade de Café 2020, top 10" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; border-radius: 999px; border: 2px solid #AB7D2C; background: #F1E9D3; display: flex; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 2px 6px rgba(46,57,66,0.18);"><span style="font-family: 'Noto Serif', serif; font-size: 16px; color: #3D4B58;">2º</span></div>
+        </a>
+        <div style="padding: 16px 10px 6px; text-align: center;">
+          <div style="font-family: 'Noto Serif', serif; font-size: 26px; color: #3D4B58;">2020</div>
+          <div style="font-size: 13.5px; font-weight: 600; letter-spacing: 0.06em; color: #AB7D2C; margin-top: 4px;">Minasul · AMAN</div>
+          <div style="font-size: 13px; color: #6F4E37; margin-top: 4px;">{{ t.aw2020m }}</div>
+        </div>
+      </div>
+      <div style="background: #fff; border: 1px solid rgba(61,75,88,0.14); border-radius: 12px; padding: 14px; box-shadow: 0 1px 2px rgba(46,57,66,0.08);">
+        <a href="assets/fotos/premios/cocarive-2021.png" target="_blank" style="display: block; position: relative;">
+          <div style="position: absolute; inset: 4px; border: 1px solid #6F4E37; pointer-events: none; z-index: 1;"></div>
+          <div style="overflow: hidden; aspect-ratio: 1.4 / 1; background: #F1E9D3;"><img src="assets/fotos/premios/cocarive-2021.png" alt="Certificado Cocarive Specialty Coffee Competition 2021 — 2º lugar Natural, Cláudia Bustamante, Fazenda Pedra Preta" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; border-radius: 999px; border: 2px solid #AB7D2C; background: #F1E9D3; display: flex; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 2px 6px rgba(46,57,66,0.18);"><span style="font-family: 'Noto Serif', serif; font-size: 16px; color: #3D4B58;">2º</span></div>
+        </a>
+        <div style="padding: 16px 10px 6px; text-align: center;">
+          <div style="font-family: 'Noto Serif', serif; font-size: 26px; color: #3D4B58;">2021</div>
+          <div style="font-size: 13.5px; font-weight: 600; letter-spacing: 0.06em; color: #AB7D2C; margin-top: 4px;">Cocarive</div>
+          <div style="font-size: 13px; color: #6F4E37; margin-top: 4px;">Cláudia Bustamante</div>
+        </div>
+      </div>
+      <div style="background: #fff; border: 1px solid rgba(61,75,88,0.14); border-radius: 12px; padding: 14px; box-shadow: 0 1px 2px rgba(46,57,66,0.08);">
+        <a href="assets/fotos/premios/amecafe-2021.png" target="_blank" style="display: block; position: relative;">
+          <div style="position: absolute; inset: 4px; border: 1px solid #6F4E37; pointer-events: none; z-index: 1;"></div>
+          <div style="overflow: hidden; aspect-ratio: 1.4 / 1; background: #F1E9D3;"><img src="assets/fotos/premios/amecafe-2021.png" alt="Certificado Amecafé Mantiqueira 2021 — Café com toque de Mulher, Cláudia Bustamante" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <div style="position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; border-radius: 999px; border: 2px solid #AB7D2C; background: #F1E9D3; display: flex; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 2px 6px rgba(46,57,66,0.18);"><span style="font-family: 'Noto Serif', serif; font-size: 18px; color: #3D4B58;">1º</span></div>
+        </a>
+        <div style="padding: 16px 10px 6px; text-align: center;">
+          <div style="font-family: 'Noto Serif', serif; font-size: 26px; color: #3D4B58;">2021</div>
+          <div style="font-size: 13.5px; font-weight: 600; letter-spacing: 0.06em; color: #AB7D2C; margin-top: 4px;">Amecafé</div>
+          <div style="font-size: 13px; color: #6F4E37; margin-top: 4px;">{{ t.aw2021a }}</div>
+        </div>
+      </div>
+      <div style="background: #3D4B58; border-radius: 12px; padding: 28px 24px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 6px 20px rgba(46,57,66,0.1);">
+        <div style="font-family: 'Noto Serif', serif; font-size: 38px; line-height: 1; color: #F1E9D3;">+10</div>
+        <div style="font-size: 13.5px; color: #C9CDD2; margin-top: 10px; line-height: 1.5;">{{ t.plus10 }}</div>
+      </div>
+    </div>
+
+    <div style="position: relative; margin-top: 64px;" data-reveal="">
+      <div style="position: absolute; inset: 0; border: 3px double #6F4E37; pointer-events: none;"></div>
+      <div data-r="certifica" style="background: #F1E9D3; padding: 44px 48px; display: grid; grid-template-columns: auto 1fr auto; gap: 36px; align-items: center;">
+        <img src="assets/social/icone_social_azul.png" alt="Certifica Minas" style="width: 92px; height: 92px;">
+        <div>
+          <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #AB7D2C;">{{ t.certEyebrow }}</div>
+          <h3 style="font-family: 'Noto Serif', serif; font-weight: 400; font-size: 28px; color: #3D4B58; margin: 8px 0 0;">Certifica Minas Café</h3>
+          <p style="font-weight: 300; font-size: 15.5px; line-height: 1.62; color: #6F4E37; margin: 12px 0 0; max-width: 720px;">{{ t.certDesc }}</p>
+        </div>
+        <img src="assets/fotos/premios/certifica-minas.png" alt="Selo Certifica Minas Café" style="width: 128px; height: auto; justify-self: end;">
+      </div>
+    </div>
+
+    <div style="margin-top: 64px; text-align: center;" data-reveal="">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #8A7A66;">{{ t.mediaLabel }}</div>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px 38px; margin-top: 22px;">
+        <span style="font-family: 'Noto Serif', serif; font-size: 19px; color: #3D4B58;">Café Imports</span>
+        <span style="width: 4px; height: 4px; border-radius: 999px; background: #AB7D2C;"></span>
+        <span style="font-family: 'Noto Serif', serif; font-size: 19px; color: #3D4B58;">Apex-Brasil</span>
+        <span style="width: 4px; height: 4px; border-radius: 999px; background: #AB7D2C;"></span>
+        <span style="font-family: 'Noto Serif', serif; font-size: 19px; color: #3D4B58;">Globo Rural</span>
+        <span style="width: 4px; height: 4px; border-radius: 999px; background: #AB7D2C;"></span>
+        <span style="font-family: 'Noto Serif', serif; font-size: 19px; color: #3D4B58;">SENAR</span>
+        <span style="width: 4px; height: 4px; border-radius: 999px; background: #AB7D2C;"></span>
+        <span style="font-family: 'Noto Serif', serif; font-size: 19px; color: #3D4B58;">Revista Cafeicultura</span>
+      </div>
+    </div>
+
+    <div style="margin-top: 72px;" data-reveal="">
+      <div style="text-align: center;">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #8A7A66;">{{ t.watchLabel }}</div>
+        <h3 style="font-family: 'Noto Serif', serif; font-weight: 400; font-size: 30px; color: #3D4B58; margin: 10px 0 0;">{{ t.watchTitle }}</h3>
+      </div>
+      <div data-r="videos" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 34px;">
+        <div style="position: relative;">
+          <div style="position: absolute; inset: -10px; border: 1px solid #6F4E37; pointer-events: none;"></div>
+          <div style="position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #3D4B58; box-shadow: 0 12px 32px rgba(46,57,66,0.16);">
+            <iframe src="https://www.youtube.com/embed/MLrsvmzxLx0" title="Sô Antônio Cafés Especiais — vídeo 1" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"></iframe>
+          </div>
+        </div>
+        <div style="position: relative;">
+          <div style="position: absolute; inset: -10px; border: 1px solid #6F4E37; pointer-events: none;"></div>
+          <div style="position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #3D4B58; box-shadow: 0 12px 32px rgba(46,57,66,0.16);">
+            <iframe src="https://www.youtube.com/embed/B_kYelodPWM" title="Sô Antônio Cafés Especiais — vídeo 2" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"></iframe>
+          </div>
+        </div>
+        <div style="position: relative;">
+          <div style="position: absolute; inset: -10px; border: 1px solid #6F4E37; pointer-events: none;"></div>
+          <div style="position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #3D4B58; box-shadow: 0 12px 32px rgba(46,57,66,0.16);">
+            <iframe src="https://www.youtube.com/embed/gAXwUXBHWBM" title="Sô Antônio Cafés Especiais — vídeo 3" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"></iframe>
+          </div>
+        </div>
+        <div style="position: relative;">
+          <div style="position: absolute; inset: -10px; border: 1px solid #6F4E37; pointer-events: none;"></div>
+          <div style="position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #3D4B58; box-shadow: 0 12px 32px rgba(46,57,66,0.16);">
+            <iframe src="https://www.youtube.com/embed/DLFCWKc8oHE" title="Sô Antônio Cafés Especiais — vídeo 4" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contato" data-screen-label="Contato" style="background: #2E3942; color: #F1E9D3;">
+  <div data-r="wrap vpad split" style="max-width: 1200px; margin: 0 auto; padding: 96px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 72px;">
+    <div data-reveal="">
+      <div style="font-size: 12.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #D4A574;">{{ t.contEyebrow }}</div>
+      <h2 data-r="h2" style="font-family: 'Noto Serif', serif; font-weight: 300; font-size: 44px; line-height: 1.1; color: #F1E9D3; margin: 16px 0 0; text-wrap: balance;">{{ t.contTitle }}</h2>
+      <p style="font-weight: 300; font-size: 16.5px; line-height: 1.62; color: #C9CDD2; margin: 18px 0 28px; max-width: 460px;">{{ t.contText }}</p>
+      <div style="display: grid; gap: 22px;">
+        <div><div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #D4A574; margin-bottom: 5px;">{{ t.lblEndereco }}</div><div style="font-size: 15.5px; color: #F1E9D3; line-height: 1.5;">Rua Dona Maria Cibele, s/n — Bairro São José<br>Pedralva / MG</div></div>
+        <div><div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #D4A574; margin-bottom: 5px;">{{ t.lblEscritorio }}</div><div style="font-size: 15.5px; color: #F1E9D3; line-height: 1.5;">Sítio Santo Inácio — Pedralva / MG</div></div>
+        <div><div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #D4A574; margin-bottom: 5px;">{{ t.lblAtendimento }}</div><div style="font-size: 15.5px; color: #F1E9D3; line-height: 1.5;">{{ t.atend }}</div></div>
+        <div style="display: flex; gap: 56px; flex-wrap: wrap;">
+          <div><div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #D4A574; margin-bottom: 5px;">WhatsApp</div><a href="{{ whatsappUrl }}" target="_blank" style="font-size: 15.5px; color: #F1E9D3; border-bottom: 1px solid rgba(212,165,116,0.5);">(35) 9.9152-2869</a></div>
+          <div><div style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #D4A574; margin-bottom: 5px;">{{ t.lblEmail }}</div><a href="mailto:{{ email }}" style="font-size: 15.5px; color: #F1E9D3; border-bottom: 1px solid rgba(212,165,116,0.5);">contato@soantonio.com.br</a></div>
+        </div>
+      </div>
+    </div>
+    <div data-reveal="">
+      <form onSubmit="{{ onSubmit }}" style="background: rgba(241,233,211,0.05); border: 1px solid rgba(241,233,211,0.16); border-radius: 14px; padding: 34px;">
+        <div style="display: grid; gap: 18px;">
+          <div><label style="display: block; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #C9CDD2; margin-bottom: 7px;">{{ t.formNome }}</label><input type="text" name="name" required="" placeholder="{{ t.formNomePh }}" style="width: 100%; background: #F4EFE6; border: 1px solid rgba(61,75,88,0.2); border-radius: 8px; padding: 12px 14px; font-family: 'Figtree', sans-serif; font-size: 15px; color: #3D4B58;"></div>
+          <div><label style="display: block; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #C9CDD2; margin-bottom: 7px;">{{ t.formEmail }}</label><input type="email" name="email" required="" placeholder="{{ t.formEmailPh }}" style="width: 100%; background: #F4EFE6; border: 1px solid rgba(61,75,88,0.2); border-radius: 8px; padding: 12px 14px; font-family: 'Figtree', sans-serif; font-size: 15px; color: #3D4B58;"></div>
+          <div><label style="display: block; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #C9CDD2; margin-bottom: 7px;">{{ t.formMsg }}</label><textarea name="message" required="" rows="4" placeholder="{{ t.formMsgPh }}" style="width: 100%; background: #F4EFE6; border: 1px solid rgba(61,75,88,0.2); border-radius: 8px; padding: 12px 14px; font-family: 'Figtree', sans-serif; font-size: 15px; color: #3D4B58; resize: vertical;"></textarea></div>
+          <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+            <div style="background: rgba(212,165,116,0.18); border: 1px solid #D4A574; border-radius: 8px; padding: 12px 14px; font-size: 14px; color: #F1E9D3;">{{ t.formSuccess }}</div>
+          </sc-if>
+          <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+            <div style="background: rgba(171,125,44,0.14); border: 1px solid rgba(212,165,116,0.55); border-radius: 8px; padding: 12px 14px; font-size: 14px; color: #F1E9D3;">{{ t.formError }}</div>
+          </sc-if>
+          <button type="submit" disabled="{{ sending }}" style="width: 100%; font-size: 15px; font-weight: 500; color: #fff; background: #AB7D2C; border: none; padding: 14px; border-radius: 999px; cursor: pointer; transition: background .2s ease; opacity: {{ btnOpacity }};" style-hover="background: #9A6E22;">{{ btnLabel }}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer style="background: #232b31; color: #C9CDD2;">
+  <div data-r="wrap" style="max-width: 1200px; margin: 0 auto; padding: 64px 40px 30px;">
+    <div data-r="footer" style="display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 48px; align-items: start; padding-bottom: 44px; border-bottom: 1px solid rgba(241,233,211,0.12);">
+      <div>
+        <img src="assets/logos/logo_horizontal_creme.png" alt="Sô Antônio Cafés Especiais" style="height: 69px; width: 146px">
+        <p style="font-weight: 300; font-size: 14.5px; line-height: 1.6; color: #C9CDD2; margin: 22px 0 0; max-width: 340px;">{{ t.footTagline }}</p>
+      </div>
+      <div>
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #D4A574; margin-bottom: 16px;">{{ t.footNav }}</div>
+        <div style="display: grid; gap: 11px;">
+          <a href="#historia" style="font-size: 14.5px; color: #C9CDD2;" style-hover="color: #F1E9D3;">{{ t.navHistoria }}</a>
+          <a href="#fazendas" style="font-size: 14.5px; color: #C9CDD2;" style-hover="color: #F1E9D3;">{{ t.navFazendas }}</a>
+          <a href="#processo" style="font-size: 14.5px; color: #C9CDD2;" style-hover="color: #F1E9D3;">{{ t.navProcesso }}</a>
+          <a href="#premiacoes" style="font-size: 14.5px; color: #C9CDD2;" style-hover="color: #F1E9D3;">{{ t.navPremiacoes }}</a>
+          <a href="#contato" style="font-size: 14.5px; color: #C9CDD2;" style-hover="color: #F1E9D3;">{{ t.footContato }}</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #D4A574; margin-bottom: 16px;">{{ t.footRedes }}</div>
+        <div style="display: grid; gap: 11px;">
+          <a href="{{ instagramUrl }}" target="_blank" style="font-size: 14.5px; color: #C9CDD2;" style-hover="color: #F1E9D3;">Instagram</a>
+          <a href="{{ facebookUrl }}" target="_blank" style="font-size: 14.5px; color: #C9CDD2;" style-hover="color: #F1E9D3;">Facebook</a>
+          <a href="{{ whatsappUrl }}" target="_blank" style="font-size: 14.5px; color: #C9CDD2;" style-hover="color: #F1E9D3;">WhatsApp</a>
+          <a href="mailto:{{ email }}" style="font-size: 14.5px; color: #C9CDD2;" style-hover="color: #F1E9D3;">contato@soantonio.com.br</a>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 22px;">
+      <div style="font-size: 12.5px; color: #8A98a3;">© 2026 Sô Antônio Cafés Especiais · Fortes Bustamante Agronegócios · CNPJ 65.522.636/0001-49</div>
+      <div style="font-size: 12.5px; color: #8A98a3;">{{ t.footLoc }}</div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { sent: false, sending: false, error: false, menuOpen: false, lang: 'pt', langOpen: false };
+
+  // ▸ Web3Forms — cole aqui a sua Access Key (gere grátis em https://web3forms.com)
+  WEB3FORMS_KEY = 'ba026a0d-f6a6-4358-916c-f0fe83ea783e';
+
+  T = {
+    pt: {
+      navHistoria: 'História', navFazendas: 'Fazendas', navProcesso: 'Da fazenda à xícara', navPremiacoes: 'Premiações', navContato: 'Fale conosco', navComprar: 'Compre online', footContato: 'Contato',
+      heroEyebrow: 'Café especial de altitude · Serra da Mantiqueira',
+      heroTitle: 'O café mais alto do Brasil, cultivado por uma família desde 1952.',
+      heroText: 'Nas montanhas da Serra da Mantiqueira, no sul de Minas, a família Fortes Bustamante colhe, seca e seleciona grãos de altíssima qualidade — microlotes de café especial com altitude, aroma e autenticidade.',
+      heroBtn1: 'Conheça as fazendas →', heroBtn2: 'Da fazenda à xícara',
+      stat1: 'Certifica Minas', stat2: 'Premiada BSCA', stat3: 'Best Cup · Cocarive', stat4: 'Altitude 1.100–1.550 m', stat5: 'Microlotes · pontuação SCA 84+',
+      histEyebrow: 'Desde 1952 · Fortes Bustamante', histTitle: 'O legado que inspira cada gole.',
+      histP1a: 'Nossa história começa com ', histP1b: ', o inesquecível “Sô Antônio”. Aos mais de 90 anos, é a alma de décadas de dedicação ao campo no sul de Minas — empreendedor nato, sempre em busca de inovação e da qualidade superior em tudo o que cultivava.',
+      histP2a: 'Hoje, sob a gestão dos filhos ', histP2b: ', a ', histP2c: ' mantém viva essa visão — do plantio à colheita, do grão à sua xícara.',
+      tl1952: 'Início do legado no campo, no sul de Minas.', tl1977: 'Aquisição da Fazenda Paraíso, em Conceição das Pedras.', tl2016: 'Fazenda Pedra Preta integra a família, em Jesuânia.', tlHojeLabel: 'Hoje', tlHoje: 'Microlotes premiados e exportação para o mundo.',
+      farmsEyebrow: 'Nossas fazendas', farmsTitle: 'Entre as montanhas de Minas, três terroirs.',
+      farmsText: 'Na Serra da Mantiqueira, no sul de Minas Gerais, nasce o Café Sô Antônio — clima temperado, ventilação permanente e altitude privilegiada em cada uma das propriedades da família.',
+      lblAltitude: 'Altitude', lblVariedade: 'Variedade', lblVariedades: 'Variedades', lblTerroir: 'Terroir', lblFuncao: 'Função', lblSecagem: 'Secagem',
+      f1tag: 'O café mais alto do Brasil', f1desc: 'Adquirida em 1977, na raiz da Serra da Pedra Branca — repleta de mata nativa e fontes de águas cristalinas. Do topo, a 1.826 m, contempla-se toda a região. Hoje produz as variedades Bourbon Amarelo, Geisha, Catucaí, Catuaí, Arara e Mundo Novo, todos de qualidade excepcional.', f1altitude: 'Até 1.550 m', f1var: 'Bourbon Amarelo, Geisha, Catucaí, Catuaí, Arara e Mundo Novo', f1terroir: 'Mata nativa & nascentes',
+      f2tag: 'Terroir diferenciado, café surpreendente', f2desc: 'Propriedade centenária integrada à família em 2016. Do topo descortina-se uma paisagem de 360° — o legítimo mar de Minas. Novas instalações de beneficiamento garantem grãos de altíssima qualidade, com aromas sensoriais incríveis.', f2altitude: 'Até 1.350 m',
+      f3tag: 'O coração do beneficiamento', f3desc: 'Sede administrativa da Fortes Bustamante e onde acontece o processamento dos grãos. Aqui ficam a estrutura de pós-colheita e as principais etapas da secagem — em terreiros de cimento, terreiros suspensos e estufas, além de secador estático e rotativo com automação — que dão ao café a qualidade do produto final.', f3funcao: 'Sede & pós-colheita', f3secagem: 'Terreiro, suspenso & estufa',
+      procEyebrow: 'Da fazenda à xícara', procTitle: 'Selecionamos, torramos e embalamos com excelência em cada etapa.', procText: 'O resultado é o equilíbrio entre técnica e tradição — um café premium com alma brasileira, da semente de Coffea cultivada na montanha à xícara na sua mesa.',
+      step1t: 'Plantio', step1d: 'Melhores cultivares de Coffea, entre 1.100 e 1.550 m de altitude.',
+      step2t: 'Colheita', step2d: 'Cerejas maduras colhidas com tecnologia, rastreadas, lavadas e despolpadas.',
+      step3t: 'Secagem', step3d: 'Artesanal em terreiro de cimento, terreiros suspensos e estufas, além de secador e automação.',
+      step4t: 'Torra', step4d: 'Torras média e clara, preservando a integridade e o aroma do grão.',
+      step5t: 'À mesa', step5d: 'Doçura, corpo e notas limpas — microlotes com alta pontuação SCA.',
+      varietiesLabel: 'Sete variedades cultivadas pela família',
+      card1t: 'Café verde', card1d: 'Sacas de 30 kg e 60 kg para cafeterias e torrefação.',
+      card2t: 'Café torrado', card2d: 'Embalagens de 250 g e 500 g, torra fresca em pequenos lotes.',
+      card3t: 'Exportação', card3d: 'Negociação sob demanda, FOB marítimo, para o mundo todo.',
+      awEyebrow: 'Prêmios e reconhecimento', awTitle: 'Excelência que conquista o mundo.', awText: 'O cuidado em cada etapa — do plantio à torra — é reconhecido por especialistas e concursos de prestígio nacional e internacional. Cada prêmio é o reconhecimento de uma história de dedicação ao café brasileiro.',
+      aw2013: 'Café Natural', aw2016: 'Grãos Naturais', aw2017: 'Top 30 · 1º lugar', aw2019: 'Finalista', aw2020c: 'Cereja', aw2020m: 'Top 10', aw2021a: 'Café com toque de Mulher', plus10: 'premiações em concursos nacionais e internacionais.',
+      certEyebrow: 'Certificação', certDesc: 'Programa de certificação do Estado de Minas Gerais que atesta boas práticas agrícolas, rastreabilidade da produção e responsabilidade social e ambiental no campo — garantia de origem e de um café feito com respeito à terra e a quem nela trabalha.',
+      mediaLabel: 'Saiu na mídia', watchLabel: 'Assista', watchTitle: 'A nossa história em vídeo',
+      contEyebrow: 'Venha tomar um café conosco', contTitle: 'Faça parte desta história.', contText: 'Para visitas, pedidos de microlotes, café verde ou exportação, fale com a nossa equipe.',
+      lblEndereco: 'Endereço', lblEscritorio: 'Escritório central', lblAtendimento: 'Atendimento', atend: 'Seg. a sex. 8h–16h · Sáb. 8h–12h', lblEmail: 'E-mail',
+      formNome: 'Nome', formNomePh: 'Seu nome', formEmail: 'E-mail', formEmailPh: 'voce@email.com', formMsg: 'Mensagem', formMsgPh: 'Como podemos ajudar?', formSuccess: 'Obrigado! Recebemos sua mensagem e retornaremos em breve.', formError: 'Não foi possível enviar. Tente novamente ou escreva para contato@soantonio.com.br.', formSending: 'Enviando…', formBtn: 'Enviar mensagem',
+      footTagline: 'Café especial de altitude da Serra da Mantiqueira. Uma marca da família Fortes Bustamante, desde 1952.', footNav: 'Navegação', footRedes: 'Redes & contato', footLoc: 'Serra da Mantiqueira · Minas Gerais · Brasil',
+    },
+    en: {
+      navHistoria: 'History', navFazendas: 'Farms', navProcesso: 'From farm to cup', navPremiacoes: 'Awards', navContato: 'Contact us', navComprar: 'Shop online', footContato: 'Contact',
+      heroEyebrow: 'High-altitude specialty coffee · Serra da Mantiqueira',
+      heroTitle: "Brazil's highest-grown coffee, cultivated by one family since 1952.",
+      heroText: 'In the mountains of the Serra da Mantiqueira, in southern Minas Gerais, the Fortes Bustamante family harvests, dries and selects beans of the highest quality — specialty-coffee microlots with altitude, aroma and authenticity.',
+      heroBtn1: 'Discover the farms →', heroBtn2: 'From farm to cup',
+      stat1: 'Certifica Minas', stat2: 'BSCA-awarded', stat3: 'Best Cup · Cocarive', stat4: 'Altitude 1,100–1,550 m', stat5: 'Microlots · SCA score 84+',
+      histEyebrow: 'Since 1952 · Fortes Bustamante', histTitle: 'The legacy behind every sip.',
+      histP1a: 'Our story begins with ', histP1b: ', the unforgettable “Sô Antônio.” Now over 90, he is the soul of decades of dedication to the land in southern Minas — a born entrepreneur, always seeking innovation and superior quality in everything he grew.',
+      histP2a: 'Today, under the leadership of his children ', histP2b: ', ', histP2c: ' keeps that vision alive — from planting to harvest, from bean to your cup.',
+      tl1952: 'The legacy begins on the land in southern Minas.', tl1977: 'Acquisition of Fazenda Paraíso, in Conceição das Pedras.', tl2016: 'Fazenda Pedra Preta joins the family, in Jesuânia.', tlHojeLabel: 'Today', tlHoje: 'Award-winning microlots, exported worldwide.',
+      farmsEyebrow: 'Our farms', farmsTitle: 'Among the mountains of Minas, three terroirs.',
+      farmsText: 'In the Serra da Mantiqueira, in southern Minas Gerais, Café Sô Antônio is born — temperate climate, constant ventilation and privileged altitude across every family property.',
+      lblAltitude: 'Altitude', lblVariedade: 'Variety', lblVariedades: 'Varieties', lblTerroir: 'Terroir', lblFuncao: 'Role', lblSecagem: 'Drying',
+      f1tag: "Brazil's highest-grown coffee", f1desc: 'Acquired in 1977, at the foot of the Serra da Pedra Branca — rich in native forest and crystal-clear springs. From its peak, at 1,826 m, the whole region comes into view. Today it grows the varieties Bourbon Amarelo, Geisha, Catucaí, Catuaí, Arara and Mundo Novo, all of exceptional quality.', f1altitude: 'Up to 1,550 m', f1var: 'Bourbon Amarelo, Geisha, Catucaí, Catuaí, Arara and Mundo Novo', f1terroir: 'Native forest & springs',
+      f2tag: 'Distinctive terroir, remarkable coffee', f2desc: "A century-old property that joined the family in 2016. From its summit unfolds a 360° landscape — the true 'sea of Minas.' New processing facilities ensure beans of the highest quality, with incredible sensory aromas.", f2altitude: 'Up to 1,350 m',
+      f3tag: 'The heart of processing', f3desc: 'Administrative headquarters of Fortes Bustamante and where the beans are processed. Here are the post-harvest facilities and the main drying stages — on concrete patios, raised beds and greenhouses, plus static and rotary dryers with automation — that give the coffee its final quality.', f3funcao: 'HQ & post-harvest', f3secagem: 'Patio, raised bed & greenhouse',
+      procEyebrow: 'From farm to cup', procTitle: 'We select, roast and pack with excellence at every step.', procText: 'The result is a balance of technique and tradition — a premium coffee with a Brazilian soul, from the Coffea seed grown on the mountain to the cup on your table.',
+      step1t: 'Planting', step1d: 'The finest Coffea cultivars, between 1,100 and 1,550 m of altitude.',
+      step2t: 'Harvest', step2d: 'Ripe cherries harvested with technology, traced, washed and pulped.',
+      step3t: 'Drying', step3d: 'Crafted on concrete patios, raised beds and greenhouses, plus dryers and automation.',
+      step4t: 'Roasting', step4d: "Medium and light roasts, preserving the bean's integrity and aroma.",
+      step5t: 'At the table', step5d: 'Sweetness, body and clean notes — microlots with high SCA scores.',
+      varietiesLabel: 'Seven varieties grown by the family',
+      card1t: 'Green coffee', card1d: '30 kg and 60 kg bags for cafés and roasters.',
+      card2t: 'Roasted coffee', card2d: '250 g and 500 g packs, fresh-roasted in small batches.',
+      card3t: 'Export', card3d: 'On-demand trade, FOB by sea, worldwide.',
+      awEyebrow: 'Awards & recognition', awTitle: 'Excellence that wins over the world.', awText: 'The care at every stage — from planting to roasting — is recognized by experts and prestigious national and international competitions. Each award honors a story of dedication to Brazilian coffee.',
+      aw2013: 'Natural coffee', aw2016: 'Natural beans', aw2017: 'Top 30 · 1st place', aw2019: 'Finalist', aw2020c: 'Pulped natural', aw2020m: 'Top 10', aw2021a: "Women's Touch Coffee", plus10: 'awards in national and international competitions.',
+      certEyebrow: 'Certification', certDesc: 'A certification program of the State of Minas Gerais attesting to good agricultural practices, production traceability, and social and environmental responsibility in the field — a guarantee of origin and of coffee made with respect for the land and those who work it.',
+      mediaLabel: 'In the media', watchLabel: 'Watch', watchTitle: 'Our story in video',
+      contEyebrow: 'Come have a coffee with us', contTitle: 'Be part of this story.', contText: 'For visits, microlot orders, green coffee or export, talk to our team.',
+      lblEndereco: 'Address', lblEscritorio: 'Head office', lblAtendimento: 'Hours', atend: 'Mon–Fri 8am–4pm · Sat 8am–12pm', lblEmail: 'Email',
+      formNome: 'Name', formNomePh: 'Your name', formEmail: 'Email', formEmailPh: 'you@email.com', formMsg: 'Message', formMsgPh: 'How can we help?', formSuccess: "Thank you! We've received your message and will get back to you soon.", formError: "Couldn't send. Please try again or email contato@soantonio.com.br.", formSending: 'Sending…', formBtn: 'Send message',
+      footTagline: 'High-altitude specialty coffee from the Serra da Mantiqueira. A Fortes Bustamante family brand, since 1952.', footNav: 'Navigation', footRedes: 'Social & contact', footLoc: 'Serra da Mantiqueira · Minas Gerais · Brazil',
+    },
+    es: {
+      navHistoria: 'Historia', navFazendas: 'Haciendas', navProcesso: 'Del campo a la taza', navPremiacoes: 'Premios', navContato: 'Hable con nosotros', navComprar: 'Compre en línea', footContato: 'Contacto',
+      heroEyebrow: 'Café especial de altura · Serra da Mantiqueira',
+      heroTitle: 'El café más alto de Brasil, cultivado por una familia desde 1952.',
+      heroText: 'En las montañas de la Serra da Mantiqueira, al sur de Minas Gerais, la familia Fortes Bustamante cosecha, seca y selecciona granos de altísima calidad — microlotes de café especial con altura, aroma y autenticidad.',
+      heroBtn1: 'Conozca las haciendas →', heroBtn2: 'Del campo a la taza',
+      stat1: 'Certifica Minas', stat2: 'Premiada BSCA', stat3: 'Best Cup · Cocarive', stat4: 'Altitud 1.100–1.550 m', stat5: 'Microlotes · puntuación SCA 84+',
+      histEyebrow: 'Desde 1952 · Fortes Bustamante', histTitle: 'El legado que inspira cada sorbo.',
+      histP1a: 'Nuestra historia comienza con ', histP1b: ', el inolvidable “Sô Antônio”. Con más de 90 años, es el alma de décadas de dedicación al campo en el sur de Minas — un emprendedor nato, siempre en busca de innovación y de la máxima calidad en todo lo que cultivaba.',
+      histP2a: 'Hoy, bajo la gestión de sus hijos ', histP2b: ', la ', histP2c: ' mantiene viva esa visión — de la siembra a la cosecha, del grano a su taza.',
+      tl1952: 'Comienza el legado en el campo, al sur de Minas.', tl1977: 'Adquisición de la Hacienda Paraíso, en Conceição das Pedras.', tl2016: 'La Hacienda Pedra Preta se integra a la familia, en Jesuânia.', tlHojeLabel: 'Hoy', tlHoje: 'Microlotes premiados y exportación al mundo.',
+      farmsEyebrow: 'Nuestras haciendas', farmsTitle: 'Entre las montañas de Minas, tres terruños.',
+      farmsText: 'En la Serra da Mantiqueira, al sur de Minas Gerais, nace el Café Sô Antônio — clima templado, ventilación permanente y altitud privilegiada en cada una de las propiedades de la familia.',
+      lblAltitude: 'Altitud', lblVariedade: 'Variedad', lblVariedades: 'Variedades', lblTerroir: 'Terruño', lblFuncao: 'Función', lblSecagem: 'Secado',
+      f1tag: 'El café más alto de Brasil', f1desc: 'Adquirida en 1977, al pie de la Serra da Pedra Branca — repleta de bosque nativo y manantiales de aguas cristalinas. Desde la cima, a 1.826 m, se contempla toda la región. Hoy produce las variedades Bourbon Amarelo, Geisha, Catucaí, Catuaí, Arara y Mundo Novo, todas de calidad excepcional.', f1altitude: 'Hasta 1.550 m', f1var: 'Bourbon Amarelo, Geisha, Catucaí, Catuaí, Arara y Mundo Novo', f1terroir: 'Bosque nativo y manantiales',
+      f2tag: 'Terruño singular, café sorprendente', f2desc: 'Propiedad centenaria integrada a la familia en 2016. Desde la cima se despliega un paisaje de 360° — el legítimo mar de Minas. Nuevas instalaciones de beneficio garantizan granos de altísima calidad, con aromas sensoriales increíbles.', f2altitude: 'Hasta 1.350 m',
+      f3tag: 'El corazón del beneficio', f3desc: 'Sede administrativa de Fortes Bustamante y donde se procesan los granos. Aquí se encuentran la estructura de poscosecha y las principales etapas del secado — en patios de cemento, camas suspendidas e invernaderos, además de secador estático y rotativo con automatización — que dan al café la calidad del producto final.', f3funcao: 'Sede y poscosecha', f3secagem: 'Patio, cama suspendida e invernadero',
+      procEyebrow: 'Del campo a la taza', procTitle: 'Seleccionamos, tostamos y envasamos con excelencia en cada etapa.', procText: 'El resultado es el equilibrio entre técnica y tradición — un café premium con alma brasileña, desde la semilla de Coffea cultivada en la montaña hasta la taza en su mesa.',
+      step1t: 'Siembra', step1d: 'Los mejores cultivares de Coffea, entre 1.100 y 1.550 m de altitud.',
+      step2t: 'Cosecha', step2d: 'Cerezas maduras cosechadas con tecnología, trazadas, lavadas y despulpadas.',
+      step3t: 'Secado', step3d: 'Artesanal en patio de cemento, camas suspendidas e invernaderos, además de secador y automatización.',
+      step4t: 'Tueste', step4d: 'Tuestes medio y claro, preservando la integridad y el aroma del grano.',
+      step5t: 'A la mesa', step5d: 'Dulzor, cuerpo y notas limpias — microlotes con alta puntuación SCA.',
+      varietiesLabel: 'Siete variedades cultivadas por la familia',
+      card1t: 'Café verde', card1d: 'Sacos de 30 kg y 60 kg para cafeterías y tostadores.',
+      card2t: 'Café tostado', card2d: 'Envases de 250 g y 500 g, tueste fresco en pequeños lotes.',
+      card3t: 'Exportación', card3d: 'Negociación bajo demanda, FOB marítimo, para todo el mundo.',
+      awEyebrow: 'Premios y reconocimiento', awTitle: 'Excelencia que conquista el mundo.', awText: 'El cuidado en cada etapa — de la siembra al tueste — es reconocido por expertos y concursos de prestigio nacional e internacional. Cada premio reconoce una historia de dedicación al café brasileño.',
+      aw2013: 'Café natural', aw2016: 'Granos naturales', aw2017: 'Top 30 · 1.er lugar', aw2019: 'Finalista', aw2020c: 'Cereza', aw2020m: 'Top 10', aw2021a: 'Café con toque de Mujer', plus10: 'premios en concursos nacionales e internacionales.',
+      certEyebrow: 'Certificación', certDesc: 'Programa de certificación del Estado de Minas Gerais que acredita buenas prácticas agrícolas, trazabilidad de la producción y responsabilidad social y ambiental en el campo — garantía de origen y de un café hecho con respeto a la tierra y a quien la trabaja.',
+      mediaLabel: 'En los medios', watchLabel: 'Vea', watchTitle: 'Nuestra historia en video',
+      contEyebrow: 'Venga a tomar un café con nosotros', contTitle: 'Forme parte de esta historia.', contText: 'Para visitas, pedidos de microlotes, café verde o exportación, hable con nuestro equipo.',
+      lblEndereco: 'Dirección', lblEscritorio: 'Oficina central', lblAtendimento: 'Atención', atend: 'Lun. a vie. 8h–16h · Sáb. 8h–12h', lblEmail: 'Correo',
+      formNome: 'Nombre', formNomePh: 'Su nombre', formEmail: 'Correo', formEmailPh: 'usted@email.com', formMsg: 'Mensaje', formMsgPh: '¿Cómo podemos ayudar?', formSuccess: '¡Gracias! Hemos recibido su mensaje y le responderemos pronto.', formError: 'No se pudo enviar. Inténtelo de nuevo o escriba a contato@soantonio.com.br.', formSending: 'Enviando…', formBtn: 'Enviar mensaje',
+      footTagline: 'Café especial de altura de la Serra da Mantiqueira. Una marca de la familia Fortes Bustamante, desde 1952.', footNav: 'Navegación', footRedes: 'Redes y contacto', footLoc: 'Serra da Mantiqueira · Minas Gerais · Brasil',
+    },
+    zh: {
+      navHistoria: '历史', navFazendas: '庄园', navProcesso: '从庄园到杯中', navPremiacoes: '荣誉奖项', navContato: '联系我们', navComprar: '在线购买', footContato: '联系',
+      heroEyebrow: '高海拔精品咖啡 · 曼蒂凯拉山脉',
+      heroTitle: '巴西海拔最高的咖啡，由一个家族自 1952 年起种植。',
+      heroText: '在米纳斯吉拉斯州南部的曼蒂凯拉山脉，Fortes Bustamante 家族采摘、晾晒并甄选最高品质的咖啡豆——兼具海拔、香气与本真的精品咖啡微批次。',
+      heroBtn1: '探索庄园 →', heroBtn2: '从庄园到杯中',
+      stat1: 'Certifica Minas 认证', stat2: 'BSCA 获奖', stat3: 'Best Cup · Cocarive', stat4: '海拔 1,100–1,550 米', stat5: '微批次 · SCA 评分 84+',
+      histEyebrow: '自 1952 年 · Fortes Bustamante', histTitle: '传承，融入每一口。',
+      histP1a: '我们的故事始于', histP1b: '——难忘的"Sô Antônio"。年过九旬的他，是数十年深耕米纳斯南部土地的灵魂人物：天生的创业者，始终追求创新与卓越品质。',
+      histP2a: '如今，在子女', histP2b: '的带领下，', histP2c: '延续着这一愿景——从种植到采收，从咖啡豆到您的杯中。',
+      tl1952: '传承在米纳斯南部的土地上启程。', tl1977: '购入位于 Conceição das Pedras 的 Paraíso 庄园。', tl2016: 'Pedra Preta 庄园加入家族，位于 Jesuânia。', tlHojeLabel: '今天', tlHoje: '屡获殊荣的微批次，远销全球。',
+      farmsEyebrow: '我们的庄园', farmsTitle: '米纳斯群山之间，三处风土。',
+      farmsText: '在米纳斯吉拉斯州南部的曼蒂凯拉山脉，孕育出 Sô Antônio 咖啡——家族每一处庄园都拥有温和气候、常年通风与得天独厚的海拔。',
+      lblAltitude: '海拔', lblVariedade: '品种', lblVariedades: '品种', lblTerroir: '风土', lblFuncao: '职能', lblSecagem: '干燥',
+      f1tag: '巴西海拔最高的咖啡', f1desc: '1977 年购入，坐落于 Pedra Branca 山脚——原生森林环绕、清泉遍布。在海拔 1,826 米的山顶，可俯瞰整个区域。如今种植 Bourbon Amarelo、Geisha、Catucaí、Catuaí、Arara 与 Mundo Novo 等品种，皆品质卓越。', f1altitude: '高达 1,550 米', f1var: 'Bourbon Amarelo、Geisha、Catucaí、Catuaí、Arara、Mundo Novo', f1terroir: '原生森林与泉水',
+      f2tag: '独特风土，惊艳咖啡', f2desc: '这座百年庄园于 2016 年加入家族。登顶可览 360° 全景——名副其实的"米纳斯之海"。全新的加工设施确保咖啡豆品质极高，散发令人惊叹的感官香气。', f2altitude: '高达 1,350 米',
+      f3tag: '加工的核心', f3desc: 'Fortes Bustamante 的行政总部，也是咖啡豆加工之地。这里设有采后处理设施与主要干燥环节——水泥晒场、高架晒床与温室，以及带自动化的静态与旋转烘干机——赋予咖啡最终的品质。', f3funcao: '总部与采后处理', f3secagem: '晒场、高架床与温室',
+      procEyebrow: '从庄园到杯中', procTitle: '每一道工序，我们都以卓越甄选、烘焙与包装。', procText: '成果源于技艺与传统的平衡——一款拥有巴西灵魂的优质咖啡，从山间种下的咖啡种子，到您餐桌上的那杯香醇。',
+      step1t: '种植', step1d: '在海拔 1,100 至 1,550 米间种植上佳的 Coffea 品种。',
+      step2t: '采收', step2d: '以技术采收成熟果实，全程溯源、清洗与去皮。',
+      step3t: '干燥', step3d: '在水泥晒场、高架床与温室中手工晾晒，并辅以烘干机与自动化。',
+      step4t: '烘焙', step4d: '中浅烘焙，保留咖啡豆的完整风味与香气。',
+      step5t: '上桌', step5d: '甜感、醇厚与干净的风味——SCA 高分微批次。',
+      varietiesLabel: '家族种植的七个品种',
+      card1t: '生咖啡豆', card1d: '30 公斤与 60 公斤装，供咖啡馆与烘焙商。',
+      card2t: '烘焙咖啡', card2d: '250 克与 500 克包装，小批量新鲜烘焙。',
+      card3t: '出口', card3d: '按需洽谈，海运 FOB，远销全球。',
+      awEyebrow: '奖项与认可', awTitle: '卓越品质，征服世界。', awText: '从种植到烘焙，每一道工序的用心，都获得专家及国内外权威赛事的认可。每一项荣誉，都是对巴西咖啡执着付出的肯定。',
+      aw2013: '日晒咖啡', aw2016: '日晒咖啡豆', aw2017: '前 30 名 · 第一名', aw2019: '入围决赛', aw2020c: '去皮日晒', aw2020m: '前 10 名', aw2021a: '女性匠心咖啡', plus10: '项国内外赛事荣誉。',
+      certEyebrow: '认证', certDesc: '米纳斯吉拉斯州的认证项目，证明良好农业规范、生产可追溯性以及田间的社会与环境责任——是产地的保证，也是一杯尊重土地与耕作者的咖啡。',
+      mediaLabel: '媒体报道', watchLabel: '观看', watchTitle: '影像中的我们',
+      contEyebrow: '来与我们共饮一杯咖啡', contTitle: '成为这个故事的一部分。', contText: '如需参观、微批次订购、生豆或出口事宜，请联系我们的团队。',
+      lblEndereco: '地址', lblEscritorio: '总部办公室', lblAtendimento: '营业时间', atend: '周一至周五 8:00–16:00 · 周六 8:00–12:00', lblEmail: '电子邮件',
+      formNome: '姓名', formNomePh: '您的姓名', formEmail: '电子邮件', formEmailPh: 'you@email.com', formMsg: '留言', formMsgPh: '我们能为您做些什么？', formSuccess: '谢谢！我们已收到您的留言，会尽快回复。', formError: '发送失败。请重试或发送邮件至 contato@soantonio.com.br。', formSending: '发送中…', formBtn: '发送留言',
+      footTagline: '来自曼蒂凯拉山脉的高海拔精品咖啡。Fortes Bustamante 家族品牌，自 1952 年。', footNav: '导航', footRedes: '社交与联系', footLoc: '曼蒂凯拉山脉 · 米纳斯吉拉斯 · 巴西',
+    },
+  };
+
+  componentDidMount() {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    if (reduce) { els.forEach(e => { e.style.opacity = 1; e.style.transform = 'none'; }); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          en.target.style.opacity = '1';
+          en.target.style.transform = 'none';
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+    const vh = window.innerHeight;
+    els.forEach(e => {
+      if (e.getBoundingClientRect().top < vh * 0.92) return;
+      e.style.opacity = '0';
+      e.style.transform = 'translateY(20px)';
+      e.style.transition = 'opacity .65s cubic-bezier(.2,.6,.2,1), transform .65s cubic-bezier(.2,.6,.2,1)';
+      io.observe(e);
+    });
+  }
+
+  pick(l) {
+    this.setState({ lang: l, langOpen: false, menuOpen: false });
+    try { document.documentElement.lang = (l === 'zh' ? 'zh-Hans' : l); } catch (e) {}
+  }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const t = this.T[lang] || this.T.pt;
+    const flagMap = { pt: 'br', en: 'us', es: 'es', zh: 'cn' };
+    const labelMap = { pt: 'PT', en: 'EN', es: 'ES', zh: '中文' };
+    return {
+      t,
+      lang,
+      flagCode: flagMap[lang],
+      langLabel: labelMap[lang],
+      langOpen: this.state.langOpen,
+      menuOpen: this.state.menuOpen,
+      sent: this.state.sent,
+      sending: this.state.sending,
+      error: this.state.error,
+      btnLabel: this.state.sending ? t.formSending : t.formBtn,
+      btnOpacity: this.state.sending ? 0.7 : 1,
+      toggleLang: () => this.setState(s => ({ langOpen: !s.langOpen, menuOpen: false })),
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen, langOpen: false })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      pickPt: () => this.pick('pt'),
+      pickEn: () => this.pick('en'),
+      pickEs: () => this.pick('es'),
+      pickZh: () => this.pick('zh'),
+      shopUrl: this.props.shopUrl ?? 'https://soantonio.lojavirtualnuvem.com.br/',
+      email: this.props.email ?? 'contato@soantonio.com.br',
+      whatsappUrl: this.props.whatsappUrl ?? 'https://api.whatsapp.com/send?phone=5535991522869',
+      instagramUrl: this.props.instagramUrl ?? 'https://www.instagram.com/fortesbustamantefazendas/',
+      facebookUrl: this.props.facebookUrl ?? 'https://www.facebook.com/fortesbustamanteagronegocios',
+      onSubmit: async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const data = new FormData(form);
+        data.append('access_key', this.WEB3FORMS_KEY);
+        data.append('subject', 'Novo contato pelo site — Sô Antônio Cafés Especiais');
+        data.append('from_name', 'Site Sô Antônio');
+        this.setState({ sending: true, error: false });
+        try {
+          const res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { Accept: 'application/json' },
+            body: data,
+          });
+          const json = await res.json();
+          if (json.success) {
+            form.reset();
+            this.setState({ sent: true, sending: false, error: false });
+          } else {
+            this.setState({ sending: false, error: true });
+          }
+        } catch (err) {
+          this.setState({ sending: false, error: true });
+        }
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>

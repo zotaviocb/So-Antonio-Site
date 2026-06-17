@@ -1,0 +1,11 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de trabalho (não necessários para deploy)
+uploads/
+screenshots/
+.thumbnail
+
+# Dependências (caso adicione tooling no futuro)
+node_modules/
